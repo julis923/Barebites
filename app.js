@@ -65,6 +65,7 @@ function closeMobileMenu() {
         menuOpen = false;
         header.style.pointerEvents = 'all';
         mobileMenu.style.pointerEvents = 'none';
+        document.body.style.overflow = 'visible';
     }
 }
 
@@ -77,6 +78,7 @@ function toggleMobileMenu() {
         header.style.pointerEvents = 'none';
         mobileMenu.style.pointerEvents = 'all';
         menuBtn.style.pointerEvents = 'all';
+        document.body.style.overflow = 'hidden';
         menuOpen = true;
     } else {
        closeMobileMenu() 
