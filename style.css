@@ -320,11 +320,6 @@ h1 {
     .mobile-link {
         font-size: 25px;
     }
-
-    header {
-        background-position-x: center;
-        background-position-y: 85px;
-    }
 }
 
 @media only screen and (max-width: 320px) {
