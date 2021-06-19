@@ -14,6 +14,7 @@ header {
     position: absolute;
     width: 100%;
     height: 100vh;
+    top: 0;
     bottom: 0;
     background-image: url('./Barebites-bg.png');
     background-size: cover;
@@ -289,7 +290,37 @@ h1 {
 }
 
 @media only screen and (max-width: 420px) {
-    
+    .slogan {
+        width: 310px;
+    }
+
+    .slogan h2 {
+        font-size: 20px;
+    }
+
+    .btn {
+        padding: 30px;
+        border-radius: 50px;
+        width: 180px;
+        height: 50px;
+    }
+
+    .btn p {
+        font-size: 16px;
+    }
+
+    h1 {
+        line-height: 100px;
+        margin-top: 20px;
+    }
+
+    .text-container {
+        margin-top: 20px;
+    }
+
+    .mobile-link {
+        font-size: 25px;
+    }
 }
 
 @media only screen and (max-width: 320px) {
