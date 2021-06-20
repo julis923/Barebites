@@ -1,0 +1,351 @@
+$darkOrange : #F37230;
+$lightOrange : #faa331;
+$desktop-breakpoint : 700px;
+$large-mobile-breakpoint : 420px;
+$small-mobile-breakpoint : 320px;
+$short-mobile-breakpoint : 570px;
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arvo', serif;
+    visibility: hidden;
+}
+
+header {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    background-image: url('./Barebites-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    color: black;
+    font-family: 'Kalam', cursive;
+    font-size: 80px;
+}
+
+h2 {
+    font-size: 25px;
+}
+
+h4 {
+    font-size: 12px;
+    cursor: pointer;
+    height: 15px;
+}
+
+.header-container {
+    margin: 20px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo-container {
+    display: flex;
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+}
+
+
+.logo-text {
+    margin-top: 12px;
+    margin-left: 3px;
+}
+
+.links-container {
+    width: 350px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.underline {
+    width: 100%;
+    border-top: 1px solid $darkOrange;
+    margin-top: 5px;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.text-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $darkOrange;
+    font-weight: lighter;
+}
+
+.slogan {
+    width: 380px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.h1-text {
+    width: 100%;
+    text-align: center;
+}
+
+
+.content {
+    height: 25vh;
+    min-height: 210px;
+    max-height: 256px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.btn-container {
+    @include flexCenter();
+    width: 100%;
+}
+
+.btn {
+    border: none;
+    padding: 13px;
+    background: white;
+    font-family: 'Arvo', sans-serif;
+    border-radius: 25px;
+    cursor: pointer;
+    width: 110px;
+    height: 46px;
+    @include flexCenter();
+    text-align: center;
+    p {
+        cursor: pointer;
+        width: 100%;
+        font-size: 13px;
+    }
+}
+
+.find {
+    background-color: $darkOrange;
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: all 0.5s ease;
+    border: 2px solid $darkOrange;
+    &:hover {
+        background-color: white;
+        color: $darkOrange;
+        border: 2px solid $darkOrange;
+    }
+}
+
+.order {
+    background-color: $lightOrange;
+    border: 2px solid $lightOrange;
+    cursor: pointer;
+    color: white;
+    transition: all 0.5s ease;
+    margin-right: 10px;
+    &:hover {
+        background-color: white;
+        border: 2px solid $lightOrange;
+        color: $lightOrange;
+    }
+}
+
+.menu-btn {
+    display: none;
+    z-index: 4;
+}
+
+.mobile-menu {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: $lightOrange;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    pointer-events: none;
+    z-index: 3;
+    @include flexCenter();
+    flex-direction: column;
+}
+
+.mobile-links-container {
+    width: 100%;
+    height: 240px;
+    margin-top: -150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mobile-link {
+    cursor: pointer;
+}
+
+.footer-logo {
+    position: absolute;
+    bottom: 200px;
+}
+
+.footer-text {
+    color: white;
+}
+
+@media only screen and (max-width: $desktop-breakpoint) {
+    .btn-container {
+        flex-direction: column;
+    }
+
+    .btn {
+        margin: 8px 0px 8px 0px;
+    }
+    
+    .link {
+        display: none;
+    }
+
+    .menu-btn {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        height: 60px;
+        transition: all 0.5s ease-in-out;
+        cursor: pointer;
+    }
+
+    .menu-btn-line_2 {
+        width: 30px;
+        height: 2px;
+        background-color: black;
+        border-radius: 5px;
+        transition: all 0.5s ease-in-out;
+        cursor: pointer;
+    }
+
+    .menu-btn-line_1, 
+    .menu-btn-line_3 {
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 2px;
+        background-color: black;
+        border-radius: 5px;
+        transition: all 0.5s ease-in-out;
+        cursor: pointer;
+    }
+
+    .menu-btn-line_1 {
+        transform: translateY(-8px);
+    }
+
+    .menu-btn-line_3 {
+        transform: translateY(8px);
+    }
+
+    .menu-btn-line_2.open {
+        transform: translateX(-30px);
+        background: transparent;
+    }
+
+    .menu-btn-line_1.open {
+        transform: rotate(45deg);
+        transition: all 0.5s ease-in-out;
+        cursor: pointer;
+    }
+
+    .menu-btn-line_3.open {
+        transform: rotate(-45deg);
+        transition: all 0.5s ease-in-out;
+        cursor: pointer;
+    }
+
+    .line {
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: $large-mobile-breakpoint) {
+    
+    .slogan {
+        width: 310px;
+        h2 {
+            font-size: 20px;
+        }
+    }
+
+    .btn {
+        padding: 30px;
+        border-radius: 50px;
+        width: 180px;
+        height: 50px;
+        p {
+            font-size: 16px;
+        }
+    }
+
+    h1 {
+        line-height: 100px;
+        margin-top: 20px;
+    }
+
+    .text-container {
+        margin-top: 20px;
+    }
+
+    .mobile-link {
+        font-size: 25px;
+    }
+}
+
+@media only screen and (max-width: $small-mobile-breakpoint) {
+    .slogan {
+        width: 260px;
+        h2 {
+            font-size: 18px;
+        }
+    }
+
+    .text-container {
+        margin-top: 0px;
+    }
+
+}
+
+@media only screen and (max-height: $short-mobile-breakpoint) {
+
+    .footer-logo {
+        bottom: 100px;
+    }
+}
+
+.resize-animation-stopper {
+    transition: none !important;
+    animation: none !important;
+}
+
